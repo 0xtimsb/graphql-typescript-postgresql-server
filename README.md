@@ -1,6 +1,6 @@
 # graphql-typescript-postgresql-server
 
-A GraphQL apollo server made with Typescript, PostgreSQL, and Redis.
+A GraphQL apollo express server made with Typescript. Database used PostgreSQL.
 
 Steps to run this project:
 
