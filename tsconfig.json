@@ -6,6 +6,9 @@
 		"sourceMap": true,
 		"outDir": "./dist",
 		"moduleResolution": "node",
+		"declaration": false,
+
+		"composite": false,
 		"removeComments": true,
 		"noImplicitAny": true,
 		"strictNullChecks": true,
@@ -19,8 +22,9 @@
 		"esModuleInterop": true,
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
-		"resolveJsonModule": true,
-		"baseUrl": "."
+		"skipLibCheck": true,
+		"baseUrl": ".",
+		"rootDir": "src"
 	},
 	"exclude": ["node_modules"],
 	"include": ["./src/**/*.tsx", "./src/**/*.ts"]
