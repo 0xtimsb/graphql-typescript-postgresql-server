@@ -1,17 +1,11 @@
-import { Resolver, Mutation, Arg, Query } from "type-graphql";
+import { Resolver, Mutation, Arg } from "type-graphql";
 import bcrypt from 'bcryptjs';
 
 import { User } from "../../entity/user";
 import { UserInput } from './input-type';
 
 @Resolver()
-export class UserResolver {
-  @Query(() => [User])
-  async users(): Promise<User[]> {
-    const users = await User.find();
-    return users;
-  }
-
+export class SignUpResolver {
   @Mutation(() => User)
   async createUser(
     @Arg('data') { name, username, email, password }: UserInput
