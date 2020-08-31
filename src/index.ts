@@ -10,21 +10,17 @@ import connectRedis from 'connect-redis';
 import cors from 'cors';
 
 import { redis } from './redis';
-import { LoginResolver } from './resolvers/user/login-resolver';
-import { SignUpResolver } from './resolvers/user/signup-resolver';
-import { MeResolver } from './resolvers/user/me-resolver';
-
 
 (async () => {
   await createConnection();
 
   const schema = await buildSchema({
-    resolvers: [MeResolver, SignUpResolver, LoginResolver]
+    resolvers: [__dirname + '/modules/**/*.ts']
   });
 
   const apolloServer = new ApolloServer({
     schema,
-    context: ({ req }: any) => ({ req })
+    context: ({ req, res }: any) => ({ req, res })
   });
 
   const app = express();
