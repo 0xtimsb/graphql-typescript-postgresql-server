@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 
 import { redis } from "../../redis";
 import { User } from "../../entity/user";
-import { ChangePasswordInput } from "./change-password-input";
+import { ChangePasswordInput } from "../../input/user/change-password-input";
 import { context } from "../../types/context";
 
 @Resolver()

@@ -3,20 +3,18 @@ import { createConnection } from 'typeorm';
 
 import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
-import { buildSchema } from 'type-graphql';
 
 import session from 'express-session';
 import connectRedis from 'connect-redis';
 import cors from 'cors';
 
 import { redis } from './redis';
+import { createSchema } from './utils/create-schema';
 
 (async () => {
   await createConnection();
 
-  const schema = await buildSchema({
-    resolvers: [__dirname + '/modules/**/*.ts']
-  });
+  const schema = await createSchema();
 
   const apolloServer = new ApolloServer({
     schema,
